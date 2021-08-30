@@ -2,9 +2,16 @@ const searchField = document.getElementById('search-field');
 
 document.getElementById('search-btn').addEventListener('click', function () {
     if (searchField.value != '') {
+
+        // calling spinner 
+        const spinner = document.getElementById('spinner');
+        spinner.style.display = 'block';
         // calling weather api using city name 
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchField.value}&units=metric&appid=2b334becae44bdcd12f3c9bf920b53d9`)
-            .then(res => res.json())
+            .then(res => {
+                hideSpinner();
+                return res.json()
+            })
             .then(weatherData => displayWeather(weatherData))
 
         // clearing search field 
@@ -76,3 +83,7 @@ function displayError(id) {
     }
 };
 
+function hideSpinner() {
+    document.getElementById('spinner')
+        .style.display = 'none';
+}

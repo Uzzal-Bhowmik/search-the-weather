@@ -17,6 +17,14 @@
             background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.3) 100%), url(images/bg.jpg);
             height: 100vh;
         }
+
+        #spinner-con {
+            height: 40vh;
+        }
+
+        #spinner {
+            display: none;
+        }
     </style>
 
 </head>
@@ -42,6 +50,16 @@
             <div id="weather-info-container" class="col text-white"></div>
         </div>
 
+        <!-- loading spinner  -->
+        <div id="loader" class="loading-overlay" style="display:none;">
+            <img src="images/spinner.svg" alt="image description">
+        </div>
+
+        <div id="spinner-con" class="d-flex justify-content-center text-warning align-items-center">
+            <div id="spinner" class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
     </section>
 
 
