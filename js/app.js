@@ -17,6 +17,7 @@ document.getElementById('search-btn').addEventListener('click', function () {
 
 
 const displayWeather = (weatherInfo) => {
+
     if (weatherInfo.cod == '404') {
         const weatherInfoCon = document.getElementById('weather-info-container');
         weatherInfoCon.textContent = '';
@@ -32,6 +33,7 @@ const displayWeather = (weatherInfo) => {
         weather.innerHTML = `
         <img src="https://openweathermap.org/img/wn/${weatherInfo.weather[0].icon}@2x.png" alt="">
         <h1 id='place-name'>${weatherInfo.name}</h1>
+        <pre>Country: ${weatherInfo.sys.country}</pre>
         <h3>${weatherInfo.main.temp}&deg;c</h3>
         <pre>Max: ${weatherInfo.main.temp_max}&deg;c &Tab; Min: ${weatherInfo.main.temp_min}&deg;c &Tab; Humidity:${weatherInfo.main.humidity}%</pre>
         <h5>${weatherInfo.weather[0].main}</h5>
